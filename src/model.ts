@@ -8,7 +8,7 @@ function _buildGeometries() {
   return {
     body:     new THREE.BoxGeometry(1.8, 0.62, 4.6),
     cabin:    new THREE.BoxGeometry(1.52, 0.38, 2.5),
-    roof:     new THREE.BoxGeometry(1.44, 0.06, 2.1),
+    roof:     new THREE.BoxGeometry(1.44, 0.06, 2.5),
     grille:   new THREE.BoxGeometry(1.66, 0.34, 0.08),
     taillight:new THREE.BoxGeometry(1.66, 0.16, 0.06),
     wheel:    new THREE.CylinderGeometry(0.36, 0.36, 0.34, 24),

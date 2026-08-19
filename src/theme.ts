@@ -1,23 +1,18 @@
 import { useSyncExternalStore } from 'react'
 
-/** UI theme prop. 'auto' follows `prefers-color-scheme`. */
 export type VelvetTheme = 'light' | 'dark' | 'auto'
 
-/** Resolved (non-auto) theme. */
 export type ResolvedTheme = 'light' | 'dark'
 
-/** Per-theme material palette. */
 export interface Palette {
   body: string
   glass: string
   tire: string
   trim: string
-  /** MeshBasicMaterial tint color for the monogram PNG — multiplied with the texture. */
   monogramTint: string
   taillight: string
 }
 
-// light UI  -> dark car
 const DARK_CAR: Palette = {
   body: '#26282d',
   glass: '#4b5058',
@@ -27,7 +22,6 @@ const DARK_CAR: Palette = {
   taillight: '#b3342e'
 }
 
-// dark UI -> light car
 const LIGHT_CAR: Palette = {
   body: '#e5e6ea',
   glass: '#1b1d22',
@@ -37,13 +31,8 @@ const LIGHT_CAR: Palette = {
   taillight: '#b3342e'
 }
 
-const PALETTES: Record<ResolvedTheme, Palette> = {
-  light: DARK_CAR,
-  dark: LIGHT_CAR
-}
-
 export function paletteFor(theme: ResolvedTheme): Palette {
-  return PALETTES[theme]
+  return theme === 'light' ? DARK_CAR : LIGHT_CAR
 }
 
 export function resolveTheme(theme: VelvetTheme, prefersDark: boolean): ResolvedTheme {
@@ -51,20 +40,14 @@ export function resolveTheme(theme: VelvetTheme, prefersDark: boolean): Resolved
   return theme
 }
 
-/* ------------------------------------------------------------------ */
-/*  React hook — reactive `prefers-color-scheme: dark` (SSR-safe).  */
-/* ------------------------------------------------------------------ */
-
-function _mf_listener(cb: () => void): () => void {
-  const mql = window.matchMedia('(prefers-color-scheme: dark)')
-  mql.addEventListener('change', cb)
-  return () => mql.removeEventListener('change', cb)
-}
-
-function _mf_snap(): boolean {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
 export function usePrefersDark(): boolean {
-  return useSyncExternalStore(_mf_listener, _mf_snap, () => false)
+  return useSyncExternalStore(
+    (cb) => {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)')
+      mql.addEventListener('change', cb)
+      return () => mql.removeEventListener('change', cb)
+    },
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches,
+    () => false
+  )
 }

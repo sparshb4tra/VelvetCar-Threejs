@@ -2,22 +2,18 @@ import * as THREE from 'three'
 import monogramUrl from './assets/velvet-monogram.png'
 import { paletteFor, type Palette, type ResolvedTheme } from './theme'
 
-/* ------------------------------------------------------------------ */
-/*  Geometry (created once, shared across every instance).           */
-/* ------------------------------------------------------------------ */
-
 let _geo: ReturnType<typeof _buildGeometries> | null = null
 
 function _buildGeometries() {
   return {
-    body: new THREE.BoxGeometry(1.8, 0.62, 4.6),
-    cabin: new THREE.BoxGeometry(1.52, 0.38, 2.5),
-    roof: new THREE.BoxGeometry(1.44, 0.06, 2.1),
-    grille: new THREE.BoxGeometry(1.66, 0.34, 0.08),
-    taillight: new THREE.BoxGeometry(1.66, 0.16, 0.06),
-    wheel: new THREE.CylinderGeometry(0.36, 0.36, 0.34, 24),
-    // PlaneGeometry matching the actual monogram asset aspect ratio (62:80 ≈ 0.775).
-    monogram: new THREE.PlaneGeometry(0.69, 0.89)
+    body:     new THREE.BoxGeometry(1.8, 0.62, 4.6),
+    cabin:    new THREE.BoxGeometry(1.52, 0.38, 2.5),
+    roof:     new THREE.BoxGeometry(1.44, 0.06, 2.1),
+    grille:   new THREE.BoxGeometry(1.66, 0.34, 0.08),
+    taillight:new THREE.BoxGeometry(1.66, 0.16, 0.06),
+    wheel:    new THREE.CylinderGeometry(0.36, 0.36, 0.34, 24),
+    // 62:80 asset aspect ratio
+    monogram: new THREE.PlaneGeometry(0.465, 0.6)
   }
 }
 
@@ -26,26 +22,17 @@ export function getGeometries() {
   return _geo
 }
 
-/* ------------------------------------------------------------------ */
-/*  Texture — eagerly load the real Velvet monogram from the asset.   */
-/* ------------------------------------------------------------------ */
-
 let _monogramTex: THREE.Texture | null = null
 new THREE.TextureLoader().load(monogramUrl, (tex) => {
   tex.colorSpace = THREE.SRGBColorSpace
   _monogramTex = tex
-  // apply to any already-built monogram materials
   for (const set of Object.values(_mCache)) {
     set.monogram.map = tex
     set.monogram.needsUpdate = true
   }
 })
 
-/* ------------------------------------------------------------------ */
-/*  Materials (one set per resolved theme, created lazily + cached).  */
-/* ------------------------------------------------------------------ */
-
-export interface CarMaterials {
+interface CarMaterials {
   body: THREE.MeshStandardMaterial
   glass: THREE.MeshStandardMaterial
   tire: THREE.MeshStandardMaterial

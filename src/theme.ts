@@ -28,7 +28,7 @@ const DARK_CAR: Palette = {
 
 // dark UI -> light car
 const LIGHT_CAR: Palette = {
-  body: '#f2f3f5',
+  body: '#e5e6ea',
   glass: '#1b1d22',
   tire: '#141519',
   trim: '#232529',

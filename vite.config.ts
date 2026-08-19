@@ -21,6 +21,7 @@ export default defineConfig({
         }
       }
     },
+    assetsInlineLimit: 10000, // inline the ~5KB monogram PNG as base64
     sourcemap: true
   }
 })

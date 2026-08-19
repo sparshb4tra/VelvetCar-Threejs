@@ -21,7 +21,8 @@
     "dev": "vite --config vite.demo.config.ts",
     "build": "vite build && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview --config vite.demo.config.ts"
+    "preview": "vite preview --config vite.demo.config.ts",
+    "prepare": "npm run build"
   },
   "keywords": [
     "three.js",

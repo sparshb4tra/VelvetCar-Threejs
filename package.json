@@ -1,0 +1,55 @@
+{
+  "name": "velvetcar",
+  "version": "1.0.0",
+  "description": "Minimal blocky 3D sedan marker for fleet tracking maps (React Three Fiber).",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite --config vite.demo.config.ts",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview --config vite.demo.config.ts"
+  },
+  "keywords": [
+    "three.js",
+    "react-three-fiber",
+    "r3f",
+    "map",
+    "tracking",
+    "vehicle",
+    "sedan",
+    "car"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@react-three/fiber": ">=8",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "three": ">=0.150"
+  },
+  "devDependencies": {
+    "@react-three/fiber": "^8.17.10",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.170.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.170.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

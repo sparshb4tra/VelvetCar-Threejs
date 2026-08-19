@@ -17,7 +17,7 @@ function _buildGeometries() {
     taillight: new THREE.BoxGeometry(1.66, 0.16, 0.06),
     wheel: new THREE.CylinderGeometry(0.36, 0.36, 0.34, 24),
     // PlaneGeometry matching the actual monogram asset aspect ratio (62:80 ≈ 0.775).
-    monogram: new THREE.PlaneGeometry(0.55, 0.71)
+    monogram: new THREE.PlaneGeometry(0.69, 0.89)
   }
 }
 
@@ -56,7 +56,7 @@ export interface CarMaterials {
 
 function _buildMaterials(p: Palette): CarMaterials {
   const monogram = new THREE.MeshBasicMaterial({
-    color: 'white',
+    color: p.monogramTint,
     transparent: true,
     depthWrite: false,
     alphaTest: 0.15

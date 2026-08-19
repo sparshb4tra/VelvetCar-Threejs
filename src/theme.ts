@@ -12,7 +12,8 @@ export interface Palette {
   glass: string
   tire: string
   trim: string
-  monogram: string
+  /** MeshBasicMaterial tint color for the monogram PNG — multiplied with the texture. */
+  monogramTint: string
   taillight: string
 }
 
@@ -22,7 +23,7 @@ const DARK_CAR: Palette = {
   glass: '#4b5058',
   tire: '#0f1013',
   trim: '#141518',
-  monogram: '#e6c65a',
+  monogramTint: '#ffe290',
   taillight: '#b3342e'
 }
 
@@ -32,7 +33,7 @@ const LIGHT_CAR: Palette = {
   glass: '#1b1d22',
   tire: '#141519',
   trim: '#232529',
-  monogram: '#b8891c',
+  monogramTint: '#252525',
   taillight: '#b3342e'
 }
 

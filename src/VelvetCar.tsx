@@ -78,10 +78,10 @@ export const VelvetCar = memo(function VelvetCar({
 
         {/* Velvet monogram — side door decals only (actual asset texture) */}
         <mesh geometry={g.monogram} material={m.monogram}
-              position={[0.906, 0.78, 0.1]}
+              position={[0.906, 0.76, 0.1]}
               rotation={[0, Math.PI / 2, 0]} />
         <mesh geometry={g.monogram} material={m.monogram}
-              position={[-0.906, 0.78, 0.1]}
+              position={[-0.906, 0.76, 0.1]}
               rotation={[0, -Math.PI / 2, 0]} />
       </group>
     </group>

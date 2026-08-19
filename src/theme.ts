@@ -25,7 +25,7 @@ const DARK_CAR: Palette = {
 const LIGHT_CAR: Palette = {
   body: '#e5e6ea',
   glass: '#1b1d22',
-  tire: '#141519',
+  tire: '#4a4d54',
   trim: '#232529',
   monogramTint: '#252525',
   taillight: '#b3342e'

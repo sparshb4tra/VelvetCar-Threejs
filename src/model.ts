@@ -11,6 +11,7 @@ function _buildGeometries() {
     roof:     new THREE.BoxGeometry(1.44, 0.06, 2.5),
     grille:   new THREE.BoxGeometry(1.66, 0.34, 0.08),
     taillight:new THREE.BoxGeometry(1.66, 0.16, 0.06),
+    brakeTop: new THREE.BoxGeometry(1.5, 0.02, 0.24),
     wheel:    new THREE.CylinderGeometry(0.36, 0.36, 0.34, 24),
     // 62:80 asset aspect ratio
     monogram: new THREE.PlaneGeometry(0.465, 0.6)

@@ -49,13 +49,14 @@ export const VelvetCar = memo(function VelvetCar({
 
         <mesh geometry={g.grille}    material={m.trim}     position={[0, 0.72, 2.3]} />
         <mesh geometry={g.taillight} material={m.taillight} position={[0, 0.9, -2.3]} />
+        <mesh geometry={g.brakeTop}  material={m.taillight} position={[0, 1.06, -2.15]} />
 
         <mesh geometry={g.monogram} material={m.monogram}
               position={[0.906, 0.73, 0.1]} rotation={[0, Math.PI / 2, 0]} />
         <mesh geometry={g.monogram} material={m.monogram}
               position={[-0.906, 0.73, 0.1]} rotation={[0, -Math.PI / 2, 0]} />
         <mesh geometry={g.monogram} material={m.monogram}
-              position={[0, 1.5, -0.45]} rotation={[-Math.PI / 2, 0, 0]} />
+              position={[0, 1.5, -0.45]} rotation={[-Math.PI / 2, 0, Math.PI]} />
       </group>
     </group>
   )

@@ -54,6 +54,8 @@ export const VelvetCar = memo(function VelvetCar({
               position={[0.906, 0.73, 0.1]} rotation={[0, Math.PI / 2, 0]} />
         <mesh geometry={g.monogram} material={m.monogram}
               position={[-0.906, 0.73, 0.1]} rotation={[0, -Math.PI / 2, 0]} />
+        <mesh geometry={g.monogram} material={m.monogram}
+              position={[0, 1.5, -0.45]} rotation={[-Math.PI / 2, 0, 0]} />
       </group>
     </group>
   )
